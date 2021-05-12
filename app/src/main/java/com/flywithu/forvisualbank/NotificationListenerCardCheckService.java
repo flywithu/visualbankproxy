@@ -7,6 +7,8 @@ import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,6 +24,8 @@ import com.flywithu.forvisualbank.gennoti.MessageGenerator;
 import com.flywithu.forvisualbank.parser.KYPAY_Parser;
 import com.flywithu.forvisualbank.parser.MessageParser;
 import com.flywithu.forvisualbank.parser.SpendInfo;
+
+import java.util.List;
 
 
 public class NotificationListenerCardCheckService extends NotificationListenerService {
@@ -53,10 +57,6 @@ public class NotificationListenerCardCheckService extends NotificationListenerSe
             }
         }
 
-
-
-
-
         Notification notification = new NotificationCompat.Builder(getBaseContext(),title)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setContentTitle(title)
@@ -67,6 +67,7 @@ public class NotificationListenerCardCheckService extends NotificationListenerSe
         notificationManager.notify(0, notification);
 
     }
+
     private void generationNotification(StatusBarNotification sbn)
     {
         MessageParser parser = null;
@@ -88,7 +89,9 @@ public class NotificationListenerCardCheckService extends NotificationListenerSe
 
                 String contents = extras.getString(Notification.EXTRA_TEXT);
                 String noti = msgGen.genMessage(parser.getInfo(title,contents,sbn.getPostTime()));
-                sendNotify(AppPackageNames.KYOUNGIPAY_NAME,noti);
+
+
+                sendNotify((AppPackageNames.KYOUNGIPAY_NAME),noti);
 
             }
        }
@@ -101,6 +104,7 @@ public class NotificationListenerCardCheckService extends NotificationListenerSe
     {
 //        Log.i("SEUNG","onListenerConnected");
         super.onListenerConnected();
+//        sendNotify((AppPackageNames.KYOUNGIPAY_NAME),"05/11 00:00 \n1111 \n상점명 \n체크카드출금 3,000원 \n잔액 1,000원");
 //        for (  StatusBarNotification sbn:super.getActiveNotifications())
 //        {
 ////            Log.i("SEUNG",sbn.getPackageName());
