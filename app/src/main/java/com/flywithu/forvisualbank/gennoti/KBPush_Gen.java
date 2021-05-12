@@ -11,7 +11,8 @@ public class KBPush_Gen implements  MessageGenerator{
 
     @Override
     public String genMessage(SpendInfo si) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd HH:mm", Locale.KOREA);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd HH:mm");
+        dateFormat.setTimeZone(java.util.TimeZone.getTimeZone(("GMT+9")));
         DecimalFormat wonformat = new DecimalFormat("###,###,###원");
         return String.format("%s \n%s \n%s \n%s %s \n잔액 %s",
                 dateFormat.format(si.getDateTime()),

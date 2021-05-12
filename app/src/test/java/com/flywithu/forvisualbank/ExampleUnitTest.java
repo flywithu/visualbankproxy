@@ -58,8 +58,8 @@ public class ExampleUnitTest {
         SpendInfo si = k.getInfo(title,content,when);
         String test = new KBPush_Gen().genMessage(si);
         String testmessage = "01/20 00:00 \n1111 \n상점명 \n체크카드출금 3,000원 \n잔액 1,000원";
-//        System.out.println(test);
-//        System.out.println(testmessage);
+        System.out.println(test);
+        System.out.println(testmessage);
         assertEquals(test,testmessage);
     }
 }
