@@ -2,6 +2,5 @@
     <string name="app_name">AllPay2Noti</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="remove_channel">삭제할 채널을 클릭하세요.</string>
-    <string name="mainid">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="subid">ca-app-pub-3940256099942544/6300978111</string>
+
 </resources>

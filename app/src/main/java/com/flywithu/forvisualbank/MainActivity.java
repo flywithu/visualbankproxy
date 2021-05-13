@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         WebView browser = (WebView)findViewById(R.id.webview);
-        browser.loadUrl("https://www.flywithu.com");
+        browser.loadUrl("https://www.flywithu.com/visualbank/");
 
 
 
