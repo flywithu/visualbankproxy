@@ -1,7 +1,7 @@
 # 경기지역화폐 To 비주얼뱅크
 
 비주얼 뱅크는 경기지역화폐의 사용 알림을 지원하지 않습니다.
-그래서 경기저역화폐의 사용알림을 비주얼뱅크가 인식하는 형식으로 변환해서 추가 알림을 보냅니다.
+그래서 경기지역화폐의 사용알림을 비주얼뱅크가 인식하는 형식으로 변환해서 추가 알림을 보냅니다.
 KB Star Push 방식을 사용하기 때문에 KB Star push 랑 같이 사용 할 수 없습니다.
 
 ## 사용법
@@ -17,9 +17,11 @@ KB Star Push 방식을 사용하기 때문에 KB Star push 랑 같이 사용 할
 
 이제 경기 지역 화폐를 사용하면 아래와 같이 알림이 3개가 보입니다. (일반적으로 원래 2개가 나옵니다)
  - 경기 지역 화폐 알림, 이 알림을 비주얼가계부로 보내 주는 알림, 비주얼 가계부가 받은 알림.
- ### 경기지역 화폐 앱
+ 
+### 경기지역 화폐 앱
  <img src="https://github.com/flywithu/visualbankproxy/blob/main/img/20210513_132244_4.png?raw=true"/>
- ### 비주얼 가계부 + AllPay2Noti 앱
+
+### 비주얼 가계부 + AllPay2Noti 앱
  <img src="https://github.com/flywithu/visualbankproxy/blob/main/img/20210513_132244_5.png?raw=true"/>
  
 
