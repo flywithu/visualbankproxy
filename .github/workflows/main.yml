@@ -64,6 +64,7 @@ jobs:
       - name: Build release APK
         run: bash ./gradlew assembleRelease --stacktrace
       - uses: r0adkll/sign-android-release@v1
+        id: sign_app
         with:
           releaseDirectory: app/build/outputs/apk/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
@@ -74,7 +75,7 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
-          name: apk
+          name: Signed Apk
           path: ${{steps.sign_app.outputs.signedReleaseFile}}
 
   publish:
