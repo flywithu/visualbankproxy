@@ -5,6 +5,10 @@
 KB Star Push 방식을 사용하기 때문에 KB Star push 랑 같이 사용 할 수 없습니다.
 
 ## 사용법
+https://github.com/flywithu/visualbankproxy/releases
+
+위 위치에서 다운로드 합니다.
+
 앱을 설치 한 후 아래 아이콘으로 앱을 실행 시켜 줍니다. 
 ![사용법](https://github.com/flywithu/visualbankproxy/blob/main/img/20210513_132244_6.png?raw=true")
 
