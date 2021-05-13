@@ -34,5 +34,5 @@ OREO 부터는 노티피케이션 알림에 '채널'이 사용 됩니다.
 (채널 삭제가 되어도 동일 앱이 카드 사용 알림을 보내면 다시 재등록 됩니다.)
 
 추가를 원하지 않으면 아래 메뉴에서 채널을 중단하면 Visual Bank에 등록이 되지 않습니다.
-
+![그림2](https://github.com/flywithu/visualbankproxy/blob/main/img/20210513_132244_2.png?raw=true)
 
