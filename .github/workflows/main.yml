@@ -70,13 +70,12 @@ jobs:
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
-        env:
-           SIGNED_RELEASE_FILE: app-release-signed.apk
+
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
           name: apk
-          path: app/build/outputs/apk/release/app-release-signed.apk
+          path: ${{steps.sign_app.outputs.signedReleaseFile}}
 
   publish:
     name: Release APK
@@ -103,6 +102,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: apk/app-release-signed.apk
+          asset_path: apk/app-release-unsigned-signed.apk
           asset_name: visualbankproxy.apk
           asset_content_type: application/zip
