@@ -67,7 +67,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: apk
-          path: app/build/outputs/apk/release/app-release.apk
+          path: app/build/outputs/apk/release/app-release-unsigned.apk
 
   publish:
     name: Release APK
@@ -86,7 +86,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: DebugAPK release ${{ github.ref }}
+          release_name: ReleaseAPK release ${{ github.ref }}
       - name: Upload Release APK
         id: upload_release_asset
         uses: actions/upload-release-asset@v1.0.1
