@@ -7,6 +7,7 @@ import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -30,6 +31,7 @@ import java.util.List;
 
 public class NotificationListenerCardCheckService extends NotificationListenerService {
 
+    SharedPreferences sharedPref = null;
     private static final class AppPackageNames {
         public static final String KYOUNGIPAY_NAME="gov.gyeonggi.ggcard";
 
@@ -88,6 +90,7 @@ public class NotificationListenerCardCheckService extends NotificationListenerSe
                 String title = extras.getString(Notification.EXTRA_TITLE,"None")+extras.getString(Notification.EXTRA_SUB_TEXT,"")+extras.getString(Notification.EXTRA_SUMMARY_TEXT,"");
 
                 String contents = extras.getString(Notification.EXTRA_TEXT);
+                parser.setAccount(sharedPref.getString(AppPackageNames.KYOUNGIPAY_NAME,"1111"));
                 String noti = msgGen.genMessage(parser.getInfo(title,contents,sbn.getPostTime()));
 
 
@@ -104,7 +107,11 @@ public class NotificationListenerCardCheckService extends NotificationListenerSe
     {
 //        Log.i("SEUNG","onListenerConnected");
         super.onListenerConnected();
-//        sendNotify((AppPackageNames.KYOUNGIPAY_NAME),"05/11 00:00 \n1111 \n상점명 \n체크카드출금 3,000원 \n잔액 1,000원");
+        sharedPref = getSharedPreferences(
+                getPackageName(), Context.MODE_PRIVATE);
+
+
+ //       sendNotify((AppPackageNames.KYOUNGIPAY_NAME),"05/11 00:00 \n1111 \n상점명 \n체크카드출금 3,000원 \n잔액 1,000원");
 //        for (  StatusBarNotification sbn:super.getActiveNotifications())
 //        {
 ////            Log.i("SEUNG",sbn.getPackageName());

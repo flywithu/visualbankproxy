@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/pg_name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/sample_name"
+        android:gravity="center_vertical"
+        android:layout_weight="4"/>
+
+    <EditText
+        android:id="@+id/account_number"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:ems="4"
+        android:hint="@string/sample_name"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:maxEms="4"
+        android:maxLength="4"
+        android:minEms="4" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+
+</LinearLayout>

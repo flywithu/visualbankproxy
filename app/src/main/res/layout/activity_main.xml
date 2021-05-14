@@ -12,17 +12,11 @@
         android:orientation="vertical">
 
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:visibility="gone" />
-
         <ListView
             android:id="@+id/listview1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
         </ListView>
         <com.google.android.gms.ads.AdView
@@ -33,7 +27,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             ads:adSize="BANNER"
-            ads:adUnitId="@string/subid">
+            ads:adUnitId="@string/sub_id">
         </com.google.android.gms.ads.AdView>
         <WebView
             android:id="@+id/webview"

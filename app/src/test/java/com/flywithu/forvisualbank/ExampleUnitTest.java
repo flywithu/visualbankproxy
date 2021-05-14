@@ -34,7 +34,7 @@ public class ExampleUnitTest {
         MessageParser k = new KYPAY_Parser();
 
         SpendInfo si = k.getInfo(title,content,when);
-        assertEquals(si.getAccount(),"경기지역화폐(1111)");
+        assertEquals(si.getAccount(),"경기지역화폐(0000)");
         assertEquals(si.getBalance(),1000,0);
         assertEquals(si.getDateTime(),348764400000l);
         assertEquals(si.getPrice(),3000,0);
@@ -57,9 +57,9 @@ public class ExampleUnitTest {
         MessageParser k = new KYPAY_Parser();
         SpendInfo si = k.getInfo(title,content,when);
         String test = new KBPush_Gen().genMessage(si);
-        String testmessage = "01/20 00:00 \n1111 \n상점명 \n체크카드출금 3,000원 \n잔액 1,000원";
-        System.out.println(test);
-        System.out.println(testmessage);
+        String testmessage = "01/20 00:00 \n0000 \n상점명 \n체크카드출금 3,000원 \n잔액 1,000원";
+//        System.out.println(test);
+//        System.out.println(testmessage);
         assertEquals(test,testmessage);
     }
 }

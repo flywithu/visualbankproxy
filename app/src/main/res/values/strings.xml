@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">AllPay2Noti</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="remove_channel">삭제할 채널을 클릭하세요.</string>
-
+    <string name="sample_name">account_name</string>
+    <string name="delete_icon">delete</string>
+    <string name="channel_name">노티피케이션채널명</string>
+    <string name="channel_account">구별번호</string>
 </resources>

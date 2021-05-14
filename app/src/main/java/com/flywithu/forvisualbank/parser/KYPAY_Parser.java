@@ -12,12 +12,14 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class KYPAY_Parser implements  MessageParser{
-    @Override
-    public SpendInfo getInfo(String title,String content,long when) {
+import lombok.Setter;
 
+public class KYPAY_Parser implements  MessageParser{
+    private String default_account="0000";
+
+    private SpendInfo getInfo(String title,String content,long when,String account) {
         SpendInfo si =new SpendInfo();
-        si.setAccount("경기지역화폐(1111)");
+        si.setAccount(account);
         si.setTitle(title);
         si.setDateTime(when);
         String[] arr = Arrays.stream(content.trim().split("\n")).map(String::trim).toArray(String[]::new);
@@ -42,5 +44,17 @@ public class KYPAY_Parser implements  MessageParser{
 
 
         return si;
+
+    }
+
+    @Override
+    public void setAccount(String s) {
+        default_account = s;
+    }
+
+    @Override
+    public SpendInfo getInfo(String title,String content,long when) {
+
+        return getInfo(title,content,when,"경기지역화폐("+default_account+")");
     }
 }

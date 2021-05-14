@@ -12,7 +12,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/mainid"/>
+            android:value="@string/main_id"/>
 
 
         <activity android:name="com.flywithu.forvisualbank.MainActivity">
