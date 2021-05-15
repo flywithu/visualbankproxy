@@ -87,13 +87,13 @@ jobs:
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
       - name: Upload APK
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: apk
           path: |
               ${{steps.nolauncher_app.outputs.signedReleaseFile}}
               ${{steps.launcher_app.outputs.signedReleaseFile}}
-
+          if-no-files-found: error
   publish:
     name: Release APK
     needs: apk
@@ -101,7 +101,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download APK from build
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v2
         with:
           name: apk
       - name: Create Release
@@ -112,6 +112,8 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: ReleaseAPK release ${{ github.ref }}
+      - name: Display structure of downloaded files
+        run: ls -R
       - name: Upload Release APK
         id: upload_release_asset
         uses: actions/upload-release-asset@v1.0.1
