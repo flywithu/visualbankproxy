@@ -69,7 +69,7 @@ jobs:
       - uses: r0adkll/sign-android-release@v1
         id: launcher_app
         with:
-          releaseDirectory: app/build/outputs/apk/lancher/release
+          releaseDirectory: app/build/outputs/apk/launcher/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -79,7 +79,7 @@ jobs:
       - uses: r0adkll/sign-android-release@v1
         id: nolauncher_app
         with:
-          releaseDirectory: app/build/outputs/apk/nolancher/release
+          releaseDirectory: app/build/outputs/apk/nolauncher/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -89,13 +89,10 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: apk
-          path: ${{steps.launcher_app.outputs.signedReleaseFile}}
+          path: |
+              ${{steps.launcher_app.outputs.signedReleaseFile}}
+              ${{steps.nolauncher_app.outputs.signedReleaseFile}}
 
-      - name: Upload APK(nolauncher)
-        uses: actions/upload-artifact@v1
-        with:
-          name: apk
-          path: ${{steps.nolauncher_app.outputs.signedReleaseFile}}
 
   publish:
     name: Release APK
