@@ -61,9 +61,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Build release APK
-        run: bash ./gradlew assembleLauncherRelease --stacktrace && bash ./gradlew assemblenoLauncherRelease --stacktrace
-
+      - name: Build release APK(launcher)
+        run: bash ./gradlew assembleLauncherRelease --stacktrace
+      - name: Build release APK(nolauncher)
+        run: bash ./gradlew assemblenoLauncherRelease --stacktrace
 
       - uses: r0adkll/sign-android-release@v1
         id: launcher_app
@@ -89,8 +90,9 @@ jobs:
         with:
           name: apk
           path: |
-              ${{steps.launcher_app.outputs.signedReleaseFile}}
               ${{steps.nolauncher_app.outputs.signedReleaseFile}}
+              ${{steps.launcher_app.outputs.signedReleaseFile}}
+
 
 
   publish:
