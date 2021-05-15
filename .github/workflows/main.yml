@@ -116,11 +116,11 @@ jobs:
         run: ls -R
       - name: Upload Release APK
         id: upload_release_asset
-        uses: actions/upload-release-asset@v1.0.1
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: apk/app-launcher-release-unsigned-signed.apk
+          asset_path: apk/launcher/release/app-launcher-release-unsigned-signed.apk
           asset_name: visualbankproxy.apk
           asset_content_type: application/zip
