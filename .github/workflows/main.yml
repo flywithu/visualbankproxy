@@ -63,7 +63,7 @@ jobs:
           java-version: 1.8
       - name: Build release APK(launcher)
         run: bash ./gradlew assembleLauncherRelease --stacktrace
-        uses: r0adkll/sign-android-release@v1
+      - uses: r0adkll/sign-android-release@v1
         id: launcher_app
         with:
           releaseDirectory: app/build/outputs/apk/lancher/release
@@ -74,7 +74,7 @@ jobs:
 
       - name: Build release APK(nolauncher)
         run: bash ./gradlew assemblenoLauncherRelease --stacktrace
-        uses: r0adkll/sign-android-release@v1
+      - uses: r0adkll/sign-android-release@v1
         id: nolauncher_app
         with:
           releaseDirectory: app/build/outputs/apk/nolancher/release
