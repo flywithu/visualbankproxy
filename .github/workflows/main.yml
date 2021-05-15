@@ -66,7 +66,8 @@ jobs:
       - name: Build release APK(nolauncher)
         run: bash ./gradlew assemblenoLauncherRelease --stacktrace
 
-      - uses: r0adkll/sign-android-release@v1
+      - name: Sign(launcher)
+        uses: r0adkll/sign-android-release@v1
         id: launcher_app
         with:
           releaseDirectory: app/build/outputs/apk/launcher/release
@@ -75,8 +76,8 @@ jobs:
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
-
-      - uses: r0adkll/sign-android-release@v1
+      - name: Sign(nolauncher)
+        uses: r0adkll/sign-android-release@v1
         id: nolauncher_app
         with:
           releaseDirectory: app/build/outputs/apk/nolauncher/release
@@ -86,14 +87,12 @@ jobs:
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
       - name: Upload APK(launcher)
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: apk
           path: |
               ${{steps.nolauncher_app.outputs.signedReleaseFile}}
               ${{steps.launcher_app.outputs.signedReleaseFile}}
-
-
 
   publish:
     name: Release APK
